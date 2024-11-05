@@ -1,5 +1,5 @@
 {% set name = "unzip-http" %}
-{% set version = "0.4" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/unzip-http-{{ version }}.tar.gz
-  sha256: 7c24c6f1d79e957b3ea3b8619d02c15a6233f76a7c73588282c914571b70f6c2
+  sha256: e245a0d440594b524cac3e72bf271c89d7e8d03f0991b0636cafab3d5b3eb707
 
 build:
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   host:
