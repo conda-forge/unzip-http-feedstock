@@ -10,16 +10,16 @@ source:
   sha256: 7c24c6f1d79e957b3ea3b8619d02c15a6233f76a7c73588282c914571b70f6c2
 
 build:
-  skip: true  # [py<38]
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 3
 
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
   run:
-    - python
+    - python >={{ python_min }}
     - urllib3
 
 test:
@@ -29,6 +29,7 @@ test:
     - unzip-http
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/saulpw/unzip-http
